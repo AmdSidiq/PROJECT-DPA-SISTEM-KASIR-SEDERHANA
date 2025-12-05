@@ -13,3 +13,9 @@ list_barang = [
 ]
 
 riwayat = []
+
+def tampilkan_barang():
+    print("\nDaftar Barang-barang") 
+    for i in barang_list:
+        print(i["nomor"], i["nama"], i["harga"])
+    print("--------------------")
