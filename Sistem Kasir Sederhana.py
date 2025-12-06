@@ -12,7 +12,7 @@ riwayat = []
 def tampilkan_barang():
     print("\nDaftar Barang-barang") 
     for i in barang_list:
-        print(i["nomor"], i["nama"], i["harga"])
+        print(f"{i["nomor"]}. {i["nama"]} Rp.{i["harga"]}")
     print("--------------------")
 
 def input_angka(pesan):
@@ -83,7 +83,34 @@ def cari_barang():
     print("Hasil:")
     for i in barang_list:
         if kata_kunci in i["nama"].lower():
-            print(i["nomor"], i["nama"], i["harga"])
+            print(f"{i["nomor"]}. {i["nama"]} Rp.{i["harga"]}")
             print("")
             return 
     print("Maaf, barang tersebut tidak ada\n")    
+
+def transaksi():
+    keranjang = []
+    total = 0
+
+    while True:
+        tampilkan_barang()
+        pilih = input("Masukkan nomor barang yang ingin dibeli.\nKetik x jika sudah selesai: ")
+
+        if pilih == "x":
+            break
+        try:
+            pilih = int(pilih)
+        except ValueError:
+            print("Masukkan angka yang sesuai atau x jika sudah selesai!")
+            continue
+        for i in barang_list:
+            if i["nomor"] == pilih:
+                jumlah = input_angka("Jumlah: ")
+                subtotal = i["harga"] * jumlah
+
+                keranjang.append(f"{i['nama']} x{jumlah} = Rp.{subtotal}")
+                total += subtotal
+                print("Ditambahkan")
+            else:
+                print("Barang tidak ada!")
+                break                
