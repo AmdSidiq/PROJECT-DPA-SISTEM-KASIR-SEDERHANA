@@ -20,7 +20,7 @@ def input_angka(pesan):
         try:
             angka = int(input(pesan))
             return angka
-        except:
+        except ValueError:
             print("Masukkan angka yang benar!")
 
 def tambah_barang():
@@ -77,3 +77,13 @@ def edit_hapus_barang():
             
             return
     print("Barang tidak ditemukan!\n")
+
+def cari_barang():
+    kata_kunci = input("Cari: ").lower()
+    print("Hasil:")
+    for i in barang_list:
+        if kata_kunci in i["nama"].lower():
+            print(i["nomor"], i["nama"], i["harga"])
+            print("")
+            return 
+    print("Maaf, barang tersebut tidak ada\n")    
