@@ -43,3 +43,42 @@ def tambah_barang():
                 break
             else:
                 print("Nominal harga harus diatas 0!\n")
+
+def edit_hapus_barang():
+    tampilkan_barang()
+    pilih = input_angka("Nomor barang yang dipilih: ")
+    for i in barang_list:
+        if i["nomor"] == pilih:
+            print("1. Edit")
+            print("2. Hapus")
+            aksi = input("Pilih: ")
+
+            while True:
+                if aksi == "1":
+                    while True:
+                        nama_baru = input("Nama baru: ")
+                        if nama_baru.strip() == "":
+                            print("Nama tidak boleh kosong!")
+                        else:
+                            i["nama"] = nama_baru
+                            break
+                    while True:
+                        harga_baru = input_angka("Harga baru: Rp.")
+                        if harga_baru <= 0:
+                            print("Nominal harga harus diatas 0!")
+                        else:
+                            i["harga"] = harga_baru
+                            print("Barang telah diperbarui!\n")
+                            break
+
+                    break
+                elif aksi == "2":
+                    barang_list.remove(i)
+                    print("Barang telah dihapus!\n")
+                    break
+                else:
+                    print("Aksi tidak valid!\n")
+                    return
+            
+            return
+    print("Barang tidak ditemukan!\n")
