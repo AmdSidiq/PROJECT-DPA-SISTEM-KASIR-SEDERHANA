@@ -114,4 +114,37 @@ def transaksi():
                 total += subtotal
                 print("Ditambahkan")
         if not ditemukan:
-            print("Tidak ada barangnya")                
+            print("Tidak ada barangnya") 
+            
+    print("Total pembayaran: Rp.", total)
+    bayar = input_angka("Uang bayar: Rp. ")
+    if bayar < total:
+        print("Maaf uangnya kurang kak")
+        return
+        
+    kembalian = bayar - total
+    print("Kembalian: Rp.", kembalian)
+
+    struk_belanja = ""
+    for i in keranjang:
+        struk_belanja += i + "\n"
+    struk_belanja += "----------------------\n"
+    struk_belanja += "TOTAL BIAYA: Rp." + str(total) + "\n"
+    struk_belanja += "----------------------\n"
+    struk_belanja += "TUNAI      : Rp." + str(bayar) + "\n"
+    struk_belanja += "KEMBALI    : Rp." + str(kembalian) + "\n"
+    struk_belanja += "Terima Kasih Sudah Berbelanja Di Warung Mas Limpat!\n"
+    struk_belanja += "\n"
+
+    riwayat.append(struk_belanja)
+
+     file = open("riwayat_kasir.txt", "a")
+    file.write(struk_belanja)
+    file.close()
+    print("Transaksi telah disimpan!")
+    print("--------------------")
+
+
+
+
+
