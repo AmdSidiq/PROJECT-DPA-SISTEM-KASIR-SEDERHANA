@@ -21,11 +21,11 @@ def input_angka(pesan):
             angka = int(input(pesan))
             return angka
         except ValueError:
-            print("Masukkan angka!")
+            print("Masukkan angka yang benar!")
 
 def tambah_barang():
     while True:
-        nama = input("Nama barang: ").capitalize()
+        nama = input("Nama barang: ")
         if nama.strip() == "":
             print("Nama tidak boleh kosong!")
         else:
@@ -51,7 +51,7 @@ def edit_hapus_barang():
             while True:
                 if aksi == "1":
                     while True:
-                        nama_baru = input("Nama baru: ").capitalize()
+                        nama_baru = input("Nama baru: ")
                         if nama_baru.strip() == "":
                             print("Nama tidak boleh kosong!")
                         else:
