@@ -1,0 +1,10 @@
+Rokok x3 = Rp.90000
+Minyak x1 = Rp.17500
+Roti x1 = Rp.12000
+----------------------
+TOTAL BIAYA: Rp.119500
+----------------------
+TUNAI      : Rp.120000
+KEMBALI    : Rp.500
+Terima Kasih Sudah Berbelanja Di Warung Mas Limbad!
+

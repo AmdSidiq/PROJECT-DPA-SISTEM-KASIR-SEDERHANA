@@ -37,7 +37,7 @@ def tambah_barang():
                 print("--------------------")
                 break
             else:
-                print("Nominal harga harus diatas 0!\n")
+                print("Nominal harga harus diatas 0!")
 
 def edit_hapus_barang():
     tampilkan_barang()
@@ -133,18 +133,42 @@ def transaksi():
     struk_belanja += "----------------------\n"
     struk_belanja += "TUNAI      : Rp." + str(bayar) + "\n"
     struk_belanja += "KEMBALI    : Rp." + str(kembalian) + "\n"
-    struk_belanja += "Terima Kasih Sudah Berbelanja Di Warung Mas Limpat!\n"
+    struk_belanja += "Terima Kasih Sudah Berbelanja Di Warung Mas Limbad!\n"
     struk_belanja += "\n"
 
     riwayat.append(struk_belanja)
 
-     file = open("riwayat_kasir.txt", "a")
+    file = open("riwayat_kasir.txt", "a")
     file.write(struk_belanja)
     file.close()
     print("Transaksi telah disimpan!")
     print("--------------------")
 
+def menu_utama():
+    while True:
+        print("Waroeng Mas Limbad")
+        print("1. Tambah Barang")
+        print("2. Tampilkan Barang")
+        print("3. Edit atau hapus Barang")
+        print("4. Cari Barang")
+        print("5. Ada yang mau beli")
+        print("6. Keluar")
 
+        pilih = input("Pilih menu: ")
 
-
-
+        if pilih == "1":
+            tambah_barang()
+        elif pilih == "2":
+            tampilkan_barang()
+        elif pilih == "3":
+            edit_hapus_barang()
+        elif pilih == "4":
+            cari_barang()
+        elif pilih == "5":
+            transaksi()
+        elif pilih == "6":
+            print("Makasih mas, izin keluar")
+            break
+        else:
+            print("Pilihan tidak valid, coba lagi\n")
+menu_utama()
