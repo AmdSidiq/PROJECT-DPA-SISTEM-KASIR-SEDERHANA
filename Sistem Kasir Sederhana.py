@@ -103,14 +103,15 @@ def transaksi():
         except ValueError:
             print("Masukkan angka yang sesuai atau x jika sudah selesai!")
             continue
+        ditemukan = False
         for i in barang_list:
             if i["nomor"] == pilih:
+                ditemukan = True
                 jumlah = input_angka("Jumlah: ")
                 subtotal = i["harga"] * jumlah
 
                 keranjang.append(f"{i['nama']} x{jumlah} = Rp.{subtotal}")
                 total += subtotal
                 print("Ditambahkan")
-            else:
-                print("Barang tidak ada!")
-                break                
+        if not ditemukan:
+            print("Tidak ada barangnya")                
